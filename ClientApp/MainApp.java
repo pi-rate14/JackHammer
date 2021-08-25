@@ -11,11 +11,10 @@ class MainApp{
 
         //asking users for download links
         System.out.println("Enter the download link: ");
-        BufferedReader br = new BufferedReader(new InputStreamReader(
-            String link = br.readLine();
-            ClientA cl = new ClientA(link);
-            s.t.join();
-            cl.t.join();
-        ))
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String link = br.readLine();
+		ClientA cl = new ClientA(link);
+		s.t.join();
+		cl.t.join();
     }
 }
