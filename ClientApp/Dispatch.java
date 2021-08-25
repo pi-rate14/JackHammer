@@ -1,6 +1,7 @@
 import java.util.*;
 import java.lang.*;
 import java.net.*;
+import Interfaces.*;
 import java.io.*;
 
 //object manages connection with the peer and gets downloaded file from it.
@@ -41,7 +42,7 @@ class HandlePeer implements Runnable{
     public void run(){
         try{
             s = new Socket(ip, DISPATCH_PORT);
-            f = new RandomAccessFile(filename, "rw");
+            f = new RandomAccessFile(fileName, "rw");
             is = new BufferedInputStream(s.getInputStream());
             os = new PrintWriter(s.getOutputStream(),true);
             //giving information
@@ -129,7 +130,7 @@ class Dispatch implements Dispatcher {
             if(size - offset < chunk){
                 peers[count++] = new HandlePeer(ip, url, fileName, offset, size-offset);
             } else {
-                peers[count++] = new HandlePeer(ip, url, fileName, offset, chunk)
+                peers[count++] = new HandlePeer(ip, url, fileName, offset, chunk);
             }
             offset += chunk;
         }
