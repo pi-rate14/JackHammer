@@ -1,6 +1,6 @@
 # JackHammer
 
-JackHammer is a command line tool written in Java to distrbute large scale downloads on different machines.
+JackHammer is a command line tool written in Java to distribute large scale downloads on different machines.
 It utilizes high speed intranet connected to low speed internet.
 
 **Preferably, the application should not be run on a single machine.**
