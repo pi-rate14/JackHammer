@@ -2,7 +2,7 @@ import java.util.*;
 import java.lang.*;
 import java.net.*;
 import java.io.*;
-import INTF.*;
+import Interfaces.*;
 
 //thread responsible to download file from offset and writing to file
 
@@ -110,21 +110,20 @@ class ClientA implements Runnable, Client{
         }
     }
 
-    /*
-		Set up all the parameters
-			Check for avilable peers
-				Dispatch the files using (Dispatch) object
-				Contact the peers with file in new object (Handler) object for each peer
-				Manage all file parts that are successfully downloaded in Handler
-				For broken files manage downloading those broken parts in other object (ManageBroken)
-			If No peer, Download as it is in Download function
-	*/	
+    // Set up all the parameters
+	//     Check for avilable peers
+    //         Dispatch the files using (Dispatch) object
+    //         Contact the peers with file in new object (Handler) object for each peer
+    //         Manage all file parts that are successfully downloaded in Handler
+    //         For broken files manage downloading those broken parts in other object (ManageBroken)
+    //     If No peer, Download as it is in Download function
+	
     public void run(){
         System.out.println("Running in thread");
         try{
             if(!checkPeers()){
                 System.err.println("No peer found, downloading on local machine");
-                donwload();
+                download();
                 return;
             }
         } finally {
@@ -161,6 +160,10 @@ class ClientA implements Runnable, Client{
 			System.out.println(e);
 		}
     }
+
+    public void getStatus(){
+		System.out.println("status");		
+	}
 
     public String getFileName(String url) {
 		System.out.println("get name");
